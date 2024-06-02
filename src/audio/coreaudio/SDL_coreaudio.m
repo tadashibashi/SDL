@@ -808,6 +808,7 @@ static int assign_device_to_audioqueue(_THIS)
     result = AudioQueueSetProperty(this->hidden->audioQueue, kAudioQueueProperty_CurrentDevice, &devuid, devuidsize);
     CHECK_RESULT("AudioQueueSetProperty (kAudioQueueProperty_CurrentDevice)");
 
+    CFBridgingRelease(devuid);
     return 1;
 }
 #endif
